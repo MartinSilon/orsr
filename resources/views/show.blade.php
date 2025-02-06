@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zoznam konateľov</title>
-    <link rel="icon" href="{{ asset('images/logo-byteminds.svg') }}" type="image/icon type">
+    <link rel="icon" href="{{ asset('images/logo-shortform.svg') }}" type="image/icon type">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -86,12 +86,15 @@
 <body>
 <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('images/img.png') }}" alt="Logo"  width="100px" class="ms-4 d-inline-block align-text-top">
+        <a class="navbar-brand" href="/">
+            <img src="{{ asset('images/umbrella-logo.png') }}" alt="Logo"  width="100px" class="ms-4 d-inline-block align-text-top">
         </a>
         @if($konatelia->count() > 0)
         <a href="/generate-company-pdfs" class="px-3 py-2 btn btn-primary rounded-0 download-btn me-2">Stiahnúť nové záznamy</a>
         @endif
+
+
+
     </div>
 </nav>
 
@@ -155,8 +158,17 @@
 </div>
 
 <footer>
-    <div class="container-fluid d-flex justify-content-center py-2">
+    <div class="container-fluid d-flex justify-content-between py-2">
         <p class="text-center m-0">Copyright © {{ date('Y') }} <a href="https://www.byteminds.sk">Byteminds.sk</a>. Všetky práva vyhradené.</p>
+
+        <div>
+            <a href="{{ route('password.change.form') }}">Zmeniť heslo</a>
+{{--            <form action="{{ route('logout') }}" method="POST" style="display: inline;">--}}
+{{--                @csrf--}}
+{{--                <button type="submit">Logout</button>--}}
+{{--            </form>--}}
+        </div>
+
     </div>
 </footer>
 </body>

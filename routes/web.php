@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use App\Http\Controllers\KonateliaController;
+use App\Http\Controllers\PdfController;
+use App\Http\Controllers\Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +19,15 @@ use Symfony\Component\Process\Process;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\GetRightDataController::class, 'downloadAll']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
+
+Route::get('/generate-company-pdfs', [PdfController::class, 'generateCompanyPdfs']);
+Route::get('/download-pdf-zip', [PdfController::class, 'downloadZip']);
+Route::get('/download-redirect', [PdfController::class, 'downloadZipAndRedirect']);
+
+Route::get('/', [Controller::class, 'show']);
 
